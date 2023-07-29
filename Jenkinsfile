@@ -22,5 +22,12 @@ pipeline {
                 echo 'Releasing'
             }
         }
+        stage('SSH server'){
+            step {
+                sshagent(['ssh-creds']) {
+                sh 'ssh -o StrictHostKeyChecking=no -l hieu 192.168.0.10 uname -a touch ~/.ssh/textJenkins.txt'
+                }        
+            }
+        }
     }
 }
