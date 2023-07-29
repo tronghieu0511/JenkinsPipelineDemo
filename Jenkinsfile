@@ -25,7 +25,7 @@ pipeline {
         stage('SSH server'){
             steps {
               sshagent(credentials: ['ssh-remote'], ignoreMissing: true) {
-                sh 'ssh -o StrictHostKeyChecking=no -l hieu 192.168.0.10 uname -a touch /etc/test.txt'
+                sh 'ssh -o StrictHostKeyChecking=no -l hieu 192.168.0.10 touch ~/.ssh/test.txt'
                 }          
             }
         }
